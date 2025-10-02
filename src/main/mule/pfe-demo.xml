@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="70820ba3-71ee-464d-8b32-fa8aa9b4e90c" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="pfe-demoFlow" doc:id="8a746408-ccb0-4a19-9a1f-31d91bc96b27" >
+		<http:listener doc:name="Listener" doc:id="fb3c936f-7973-41f9-a370-a49c6005137a" config-ref="HTTP_Listener_config" path="/parallel"/>
+		<set-payload value='#[[1,2,3,"a",4,5]]' doc:name="Set Payload" doc:id="2be531b6-98cf-44b5-99d3-2fb3a8b3750c" />
+		<set-variable value="#[[]]" doc:name="Set Variable" doc:id="e08b2034-aed8-499e-82c3-8d2abe795880" variableName="a" />
+		<parallel-foreach doc:name="Parallel For Each" doc:id="b5f90806-b8e1-436f-937b-bdd62d6a051a" collection="#[payload]">
+			<ee:transform doc:name="Transform Message" doc:id="ed0111bb-2399-4bab-b9e5-b9bee1c8791e">
+					<ee:message>
+						<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+payload * 10]]></ee:set-payload>
+					</ee:message>
+				</ee:transform>
+			<set-variable value="#[output application/json --- vars.a + payload]" doc:name="Set Variable" doc:id="003f3446-32f6-4d20-8610-f82bd13aab33" variableName="a" />
+			<set-payload value="#[vars.a]" doc:name="Set Payload" doc:id="229c87c0-54af-4d92-8cbf-54334fb893b3" />
+		</parallel-foreach>
+		<ee:transform doc:name="Transform Message" doc:id="0fac056c-3eae-4d22-a1f7-6aecacd015d9" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+//flatten(payload.payload)
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>
