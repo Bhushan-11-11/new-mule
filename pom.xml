@@ -20,6 +20,23 @@
 	<build>
 		<plugins>
 			<plugin>
+  <groupId>org.mule.tools.maven</groupId>
+  <artifactId>mule-maven-plugin</artifactId>
+  <version>4.3.0</version>
+  <configuration>
+    <cloudHubDeployment>
+      <username>${anypoint.username}</username>
+      <password>${anypoint.password}</password>
+      <applicationName>${appName}</applicationName>
+      <environment>${env}</environment>
+      <businessGroup>${business}</businessGroup>
+      <workers>${workers}</workers>
+      <workerType>${vCore}</workerType>
+    </cloudHubDeployment>
+  </configuration>
+</plugin>
+
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
 				<version>3.2.0</version>
