@@ -31,8 +31,8 @@
                     <deploymentType>cloudhub2</deploymentType>
 
                     <!-- Connected App auth -->
-                    <anypointClientId>9c84f26879604c58a7570d06913503d4</anypointClientId>
-                    <anypointClientSecret>759e58b921D14a50B59e988682bD4192</anypointClientSecret>
+                    <anypointClientId>${anypoint.clientId}</anypointClientId>
+                    <anypointClientSecret>${anypoint.clientSecret}</anypointClientSecret>
 
                     <!-- Target environment (Sandbox, Dev, etc.) -->
                     <target>${env}</target>
