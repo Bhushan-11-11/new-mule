@@ -27,15 +27,20 @@
                 <version>${mule.maven.plugin.version}</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <cloudHubDeployment>
-                        <username>${anypoint.username}</username>
-                        <password>${anypoint.password}</password>
-                        <applicationName>${appName}</applicationName>
-                        <environment>${env}</environment>
-                        <businessGroup>${business}</businessGroup>
-                        <workers>${workers}</workers>
-                        <workerType>${vCore}</workerType>
-                    </cloudHubDeployment>
+                    <!-- CloudHub 2.0 deployment -->
+                    <deploymentType>cloudhub2</deploymentType>
+
+                    <!-- Connected App credentials -->
+                    <anypointClientId>${anypoint.clientId}</anypointClientId>
+                    <anypointClientSecret>${anypoint.clientSecret}</anypointClientSecret>
+
+                    <!-- Application settings -->
+                    <applicationName>${appName}</applicationName>
+                    <target>${env}</target> <!-- e.g., Sandbox, Dev, Prod -->
+
+                    <!-- Runtime -->
+                    <workers>${workers}</workers>
+                    <workerType>${vCore}</workerType>
                 </configuration>
             </plugin>
         </plugins>
