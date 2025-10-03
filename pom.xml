@@ -18,8 +18,6 @@
         <app.runtime>4.9.9</app.runtime>
         <mule.maven.plugin.version>4.3.0</mule.maven.plugin.version>
 
-        <!-- Default app name: override with -DappName=your-app in CLI/Jenkins -->
-        <appName>${project.artifactId}</appName>
         <env>Sandbox</env>
         <business>SA</business>
         <workers>1</workers>
@@ -33,19 +31,11 @@
                 <artifactId>mule-maven-plugin</artifactId>
                 <version>${mule.maven.plugin.version}</version>
                 <extensions>true</extensions>
+                <!-- Do not define applicationName or environment here -->
                 <configuration>
-                    <!-- Deployment type -->
                     <deploymentType>cloudhub2</deploymentType>
-
-                    <!-- Authentication -->
                     <username>${anypoint.username}</username>
                     <password>${anypoint.password}</password>
-
-                    <!-- Target environment -->
-                    <environment>${env}</environment>
-                    <businessGroup>${business}</businessGroup>
-
-                    <!-- Runtime configuration -->
                     <workers>${workers}</workers>
                     <workerType>${vCore}</workerType>
                     <muleVersion>${app.runtime}</muleVersion>
