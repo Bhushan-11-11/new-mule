@@ -28,27 +28,24 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.mule.tools.maven</groupId>
-                <artifactId>mule-maven-plugin</artifactId>
-                <version>${mule.maven.plugin.version}</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <deploymentConfiguration>
-                        <deploymentType>cloudhub2</deploymentType>
-                        <username>${anypoint.username}</username>
-                        <password>${anypoint.password}</password>
+    <groupId>org.mule.tools.maven</groupId>
+    <artifactId>mule-maven-plugin</artifactId>
+    <version>${mule.maven.plugin.version}</version>
+    <extensions>true</extensions>
+    <configuration>
+        <cloudHubDeployment>
+            <username>${anypoint.username}</username>
+            <password>${anypoint.password}</password>
+            <applicationName>${appName}</applicationName>
+            <environment>${env}</environment>
+            <businessGroup>${business}</businessGroup>
+            <workers>${workers}</workers>
+            <workerType>${vCore}</workerType>
+            <muleVersion>${app.runtime}</muleVersion>
+        </cloudHubDeployment>
+    </configuration>
+</plugin>
 
-                        <!-- CLI will set these -->
-                        <applicationName>${appName}</applicationName>
-                        <target>${env}</target>
-                        <businessGroup>${business}</businessGroup>
-
-                        <workers>${workers}</workers>
-                        <workerType>${vCore}</workerType>
-                        <muleVersion>${app.runtime}</muleVersion>
-                    </deploymentConfiguration>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 
