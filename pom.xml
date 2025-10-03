@@ -15,18 +15,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <!-- Mule runtime -->
         <app.runtime>4.9.9</app.runtime>
         <mule.maven.plugin.version>4.3.0</mule.maven.plugin.version>
 
-        <!-- Default deployment values -->
+        <!-- Deployment defaults (can override via CLI) -->
         <env>Sandbox</env>
         <business>SA</business>
         <workers>1</workers>
         <vCore>Micro</vCore>
-
-        <!-- These are read-only in Maven, set via CLI -->
-        <appName>pfe-demo</appName>
     </properties>
 
     <build>
@@ -37,20 +33,20 @@
                 <version>${mule.maven.plugin.version}</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <!-- Deployment type CloudHub 2.0 -->
-                    <deploymentType>cloudhub2</deploymentType>
+                    <deploymentConfiguration>
+                        <deploymentType>cloudhub2</deploymentType>
+                        <username>${anypoint.username}</username>
+                        <password>${anypoint.password}</password>
 
-                    <!-- Authentication -->
-                    <username>${anypoint.username}</username>
-                    <password>${anypoint.password}</password>
+                        <!-- CLI will set these -->
+                        <applicationName>${appName}</applicationName>
+                        <target>${env}</target>
+                        <businessGroup>${business}</businessGroup>
 
-                    <!-- Runtime configuration -->
-                    <workers>${workers}</workers>
-                    <workerType>${vCore}</workerType>
-                    <muleVersion>${app.runtime}</muleVersion>
-
-                    <!-- Optional business group -->
-                    <businessGroup>${business}</businessGroup>
+                        <workers>${workers}</workers>
+                        <workerType>${vCore}</workerType>
+                        <muleVersion>${app.runtime}</muleVersion>
+                    </deploymentConfiguration>
                 </configuration>
             </plugin>
         </plugins>
