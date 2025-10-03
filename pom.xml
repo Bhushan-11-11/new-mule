@@ -33,21 +33,7 @@
                 <artifactId>mule-maven-plugin</artifactId>
                 <version>${mule.maven.plugin.version}</version>
                 <extensions>true</extensions>
-                <configuration>
-    <cloudHub2Deployment>
-        <target>${env}</target>
-        <applicationName>${appName}</applicationName>
-        <environment>${env}</environment>
-        
-        <server>anypoint-bhushan</server> 
-        
-        <businessGroup>${business}</businessGroup>
-        <workers>${workers}</workers>
-        <workerType>${vCore}</workerType>
-        <muleVersion>${app.runtime}</muleVersion>
-    </cloudHub2Deployment>
-</configuration>
-            </plugin>
+                </plugin>
         </plugins>
     </build>
 
@@ -89,4 +75,41 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
+    
+    <profiles>
+        <profile>
+            <id>cloudhub2-deploy</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.mule.tools.maven</groupId>
+                        <artifactId>mule-maven-plugin</artifactId>
+                        <version>${mule.maven.plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>deployment</id>
+                                <phase>deploy</phase>
+                                <goals>
+                                    <goal>deploy</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <cloudHub2Deployment>
+                                <target>${env}</target>
+                                <applicationName>${appName}</applicationName>
+                                <environment>${env}</environment>
+                                <username>${anypoint.username}</username>
+                                <password>${anypoint.password}</password>
+                                <businessGroup>${business}</businessGroup>
+                                <workers>${workers}</workers>
+                                <workerType>${vCore}</workerType>
+                                <muleVersion>${app.runtime}</muleVersion>
+                            </cloudHub2Deployment>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
