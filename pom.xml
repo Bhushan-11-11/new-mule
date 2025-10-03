@@ -15,13 +15,18 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
+        <!-- Mule runtime -->
         <app.runtime>4.9.9</app.runtime>
         <mule.maven.plugin.version>4.3.0</mule.maven.plugin.version>
 
+        <!-- Default deployment values -->
         <env>Sandbox</env>
         <business>SA</business>
         <workers>1</workers>
         <vCore>Micro</vCore>
+
+        <!-- These are read-only in Maven, set via CLI -->
+        <appName>pfe-demo</appName>
     </properties>
 
     <build>
@@ -31,14 +36,21 @@
                 <artifactId>mule-maven-plugin</artifactId>
                 <version>${mule.maven.plugin.version}</version>
                 <extensions>true</extensions>
-                <!-- Do not define applicationName or environment here -->
                 <configuration>
+                    <!-- Deployment type CloudHub 2.0 -->
                     <deploymentType>cloudhub2</deploymentType>
+
+                    <!-- Authentication -->
                     <username>${anypoint.username}</username>
                     <password>${anypoint.password}</password>
+
+                    <!-- Runtime configuration -->
                     <workers>${workers}</workers>
                     <workerType>${vCore}</workerType>
                     <muleVersion>${app.runtime}</muleVersion>
+
+                    <!-- Optional business group -->
+                    <businessGroup>${business}</businessGroup>
                 </configuration>
             </plugin>
         </plugins>
@@ -64,13 +76,11 @@
             <id>anypoint-exchange-v3</id>
             <name>Anypoint Exchange</name>
             <url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
-            <layout>default</layout>
         </repository>
         <repository>
             <id>mulesoft-releases</id>
             <name>MuleSoft Releases Repository</name>
             <url>https://repository.mulesoft.org/releases/</url>
-            <layout>default</layout>
         </repository>
     </repositories>
 
@@ -78,7 +88,6 @@
         <pluginRepository>
             <id>mulesoft-releases</id>
             <name>MuleSoft Releases Repository</name>
-            <layout>default</layout>
             <url>https://repository.mulesoft.org/releases/</url>
             <snapshots>
                 <enabled>false</enabled>
