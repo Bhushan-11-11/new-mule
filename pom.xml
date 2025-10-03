@@ -10,43 +10,44 @@
     <packaging>mule-application</packaging>
 
     <name>pfe-demo</name>
-<properties>
+    
+    <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <app.runtime>4.9.9</app.runtime>
         <mule.maven.plugin.version>4.3.0</mule.maven.plugin.version>
     </properties>
-         <distributionManagement>
+    
+    <distributionManagement>
         <repository>
             <id>anypoint-exchange</id>
             <name>Exchange Repository</name>
             <url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
         </repository>
     </distributionManagement>
+    
     <build>
         <plugins>
             <plugin>
-    <groupId>org.mule.tools.maven</groupId>
-    <artifactId>mule-maven-plugin</artifactId>
-    <version>${mule.maven.plugin.version}</version>
-    <extensions>true</extensions>
-    <configuration>
-        <cloudHub2Deployment>
-                 <applicationName>${appName}</applicationName>
-        <environment>${env}</environment>
-            <username>${anypoint.username}</username>
-            <password>${anypoint.password}</password>
-            <businessGroup>${business}</businessGroup>
-            <workers>${workers}</workers>
-            <workerType>${vCore}</workerType>
-            <muleVersion>${app.runtime}</muleVersion>
-         
-        </cloudHub2Deployment>
-    </configuration>
-</plugin>
-
+                <groupId>org.mule.tools.maven</groupId>
+                <artifactId>mule-maven-plugin</artifactId>
+                <version>${mule.maven.plugin.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <cloudHub2Deployment>
+                        <target>${env}</target>
+                        <applicationName>${appName}</applicationName>
+                        <environment>${env}</environment>
+                        <username>${anypoint.username}</username>
+                        <password>${anypoint.password}</password>
+                        <businessGroup>${business}</businessGroup>
+                        <workers>${workers}</workers>
+                        <workerType>${vCore}</workerType>
+                        <muleVersion>${app.runtime}</muleVersion>
+                    </cloudHub2Deployment>
+                </configuration>
+            </plugin>
         </plugins>
-             
     </build>
 
     <dependencies>
