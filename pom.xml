@@ -25,7 +25,7 @@
     <extensions>true</extensions>
     <configuration>
         <cloudHubDeployment>
-                 <deploymentType>cloudhub2.0</deploymentType>
+                 <deploymentType>cloudhub2</deploymentType>
                  <applicationName>${appName}</applicationName>
         <environment>${env}</environment>
             <username>${anypoint.username}</username>
