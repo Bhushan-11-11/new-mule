@@ -25,6 +25,8 @@
     <extensions>true</extensions>
     <configuration>
         <cloudHubDeployment>
+                 <applicationName>${appName}</applicationName>
+        <environment>${env}</environment>
             <username>${anypoint.username}</username>
             <password>${anypoint.password}</password>
             <businessGroup>${business}</businessGroup>
