@@ -27,19 +27,29 @@
                 <version>${mule.maven.plugin.version}</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <!-- CloudHub 2.0 -->
-                    <deploymentType>cloudhub2</deploymentType>
+                    <deploymentConfiguration>
+                        <!-- Deployment type -->
+                        <deploymentType>cloudhub2</deploymentType>
 
-                    <!-- Connected App auth -->
-                    <anypointClientId>${anypoint.clientId}</anypointClientId>
-                    <anypointClientSecret>${anypoint.clientSecret}</anypointClientSecret>
+                        <!-- Authentication (Connected App or username/password) -->
+                        <username>${anypoint.username}</username>
+                        <password>${anypoint.password}</password>
+                        <!-- OR use clientId/secret if you prefer Connected Apps -->
+                        <!--
+                        <anypointClientId>${anypoint.clientId}</anypointClientId>
+                        <anypointClientSecret>${anypoint.clientSecret}</anypointClientSecret>
+                        -->
 
-                    <!-- Target environment (Sandbox, Dev, etc.) -->
-                    <target>${env}</target>
+                        <!-- App info -->
+                        <applicationName>${appName}</applicationName>
+                        <environment>${env}</environment>
+                        <businessGroup>${business}</businessGroup>
 
-                    <!-- Runtime config -->
-                    <workers>${workers}</workers>
-                    <workerType>${vCore}</workerType>
+                        <!-- Runtime config -->
+                        <workers>${workers}</workers>
+                        <workerType>${vCore}</workerType>
+                        <muleVersion>${app.runtime}</muleVersion>
+                    </deploymentConfiguration>
                 </configuration>
             </plugin>
         </plugins>
@@ -86,5 +96,4 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
-
 </project>
