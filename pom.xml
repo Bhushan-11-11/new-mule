@@ -35,9 +35,7 @@
     <configuration>
         <cloudHubDeployment>
             <username>${anypoint.username}</username>
-            <password>${anypoint.password}</password>
-            <applicationName>${appName}</applicationName>
-            <environment>${env}</environment>
+            <password>${anypoint.password}</password
             <businessGroup>${business}</businessGroup>
             <workers>${workers}</workers>
             <workerType>${vCore}</workerType>
