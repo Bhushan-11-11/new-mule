@@ -24,7 +24,7 @@
     <version>${mule.maven.plugin.version}</version>
     <extensions>true</extensions>
     <configuration>
-        <cloudHubDeployment>
+        <cloudHub2Deployment>
                  <applicationName>${appName}</applicationName>
         <environment>${env}</environment>
             <username>${anypoint.username}</username>
@@ -33,9 +33,8 @@
             <workers>${workers}</workers>
             <workerType>${vCore}</workerType>
             <muleVersion>${app.runtime}</muleVersion>
-         <cloudHubVersion>2</cloudHubVersion>
          
-        </cloudHubDeployment>
+        </cloudHub2Deployment>
     </configuration>
 </plugin>
 
