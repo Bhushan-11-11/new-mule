@@ -31,7 +31,7 @@
             <password>${anypoint.password}</password>
             <businessGroup>${business}</businessGroup>
             <workers>${workers}</workers>
-            <workerType>${vCore}</workerType>
+            <workerType>$1.vCore</workerType>
             <muleVersion>${app.runtime}</muleVersion>
         </cloudHubDeployment>
     </configuration>
