@@ -33,6 +33,7 @@
             <workers>${workers}</workers>
             <workerType>${vCore}</workerType>
             <muleVersion>${app.runtime}</muleVersion>
+         <cloudHubVersion>2</cloudHubVersion>
          
         </cloudHubDeployment>
     </configuration>
