@@ -61,7 +61,7 @@
                      <executions>
                             <execution>
                                 <id>deployment</id>
-                                <phase>deploy</phase>
+                                <!--<phase>deploy</phase> -->
                                 <goals>
                                     <goal>deploy</goal>
                                 </goals>
