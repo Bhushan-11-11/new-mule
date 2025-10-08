@@ -1,3 +1,4 @@
+@@ -1,115 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -10,14 +11,14 @@
     <packaging>mule-application</packaging>
 
     <name>pfe-demo</name>
-    
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <app.runtime>4.9.9</app.runtime>
-        <mule.maven.plugin.version>3.8.1</mule.maven.plugin.version>
+        <mule.maven.plugin.version>4.3.0</mule.maven.plugin.version>
     </properties>
-    
+
     <distributionManagement>
         <repository>
             <id>anypoint-exchange</id>
@@ -25,13 +26,13 @@
             <url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
         </repository>
     </distributionManagement>
-    
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.mule.tools.maven</groupId>
                 <artifactId>mule-maven-plugin</artifactId>
-                <version>3.9.11</version>
+                <version>${mule.maven.plugin.version}</version>
                 <extensions>true</extensions>
                 </plugin>
         </plugins>
@@ -75,18 +76,17 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
-    
+
     <profiles>
         <profile>
-    <id>cloudhub2-deploy</id>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.mule.tools.maven</groupId>
-                <artifactId>mule-maven-plugin</artifactId>
-                <version>${mule.maven.plugin.version}</version>
-                <extensions>true</extensions>
-                     <executions>
+            <id>cloudhub2-deploy</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.mule.tools.maven</groupId>
+                        <artifactId>mule-maven-plugin</artifactId>
+                        <version>${mule.maven.plugin.version}</version>
+                        <executions>
                             <execution>
                                 <id>deployment</id>
                                 <phase>deploy</phase>
@@ -95,23 +95,23 @@
                                 </goals>
                             </execution>
                         </executions>
-                <configuration>
-                    <cloudhub2Deployment>
-                        <applicationName>${appName}</applicationName>
-                        <environment>${env}</environment>
-                        <target>${targetName}</target>
-                        <provider>MC</provider>
-                        <muleVersion>${app.runtime}</muleVersion>
-                        <replicas>${workers}</replicas>
-                        <vCores>${vCore}</vCores>
-                        <businessGroup>${businessGroup}</businessGroup>
-                        <username>${anypoint.username}</username>
-                        <password>${anypoint.password}</password>
-                    </cloudhub2Deployment>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-</profile>
+                        <configuration>
+                            <cloudHub2Deployment>
+                                <target>${env}</target>
+                                <target>${targetName}</target>
+                                <applicationName>${appName}</applicationName>
+                                <environment>${env}</environment>
+                                <username>${anypoint.username}</username>
+                                <password>${anypoint.password}</password>
+                                <businessGroup>${businessGroup}</businessGroup>
+                                <workers>${workers}</workers>
+                                <workerType>${vCore}</workerType>
+                                <muleVersion>${app.runtime}</muleVersion>
+                            </cloudHub2Deployment>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
     </profiles>
 </project>
