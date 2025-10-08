@@ -6,7 +6,7 @@
 
     <groupId>96f01c2b-0ae8-4ad0-9957-017ad3be6d7f</groupId>
     <artifactId>pfe-demo</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <packaging>mule-application</packaging>
 
     <name>pfe-demo</name>
