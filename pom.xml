@@ -60,7 +60,7 @@
                     <groupId>org.mule.tools.maven</groupId>
                     <artifactId>mule-maven-plugin</artifactId>
                     <version>${mule.maven.plugin.version}</version>
-                   <extension>true</extension>
+                   <extensions>true</extensions>
                     <executions>
                         <execution>
                             <id>cloudhub2-deployment</id>
