@@ -58,15 +58,15 @@
                         <artifactId>mule-maven-plugin</artifactId>
                         <version>${mule.maven.plugin.version}</version>
                         <extensions>true</extensions>
-                     <!--   <executions>
+                     <executions>
                             <execution>
                                 <id>deployment</id>
-                                <phase>cloudhub2-deploy</phase>
+                                <phase>deploy</phase>
                                 <goals>
                                     <goal>deploy</goal>
                                 </goals>
                             </execution>
-                        </executions> -->
+                        </executions> 
                         <configuration>
                                  <classifier>>mule-application</classifier>
                             <cloudHub2Deployment>
