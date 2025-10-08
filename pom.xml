@@ -96,7 +96,7 @@
                         </executions>
                         <configuration>
                             <cloudHub2Deployment>
-                                <target>${env}</target>
+                                <target>${targetName}</target>
                                 <applicationName>${appName}</applicationName>
                                 <environment>${env}</environment>
                                 <username>${anypoint.username}</username>
