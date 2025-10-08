@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>96f01c2b-0ae8-4ad0-9957-017ad3be6d7f</groupId>
-    <artifactId>pfe-demo</artifactId>
+    <artifactId>pfe-demo-11112000</artifactId>
     <version>1.0.1</version>
     <packaging>mule-application</packaging>
 
@@ -77,6 +77,7 @@
                         <groupId>org.mule.tools.maven</groupId>
                         <artifactId>mule-maven-plugin</artifactId>
                         <version>${mule.maven.plugin.version}</version>
+                           <extensions>true</extensions>
                     <!--    <executions>
                             <execution>
                                 <id>deployment</id>
@@ -88,6 +89,7 @@
                         </executions> -->
                         <configuration>
                             <cloudHub2Deployment>
+                                <uri>https://anypoint.mulesoft.com</uri>
                                 <target>${env}</target>
                                 <target>${targetName}</target>
                                 <applicationName>${appName}</applicationName>
@@ -95,8 +97,8 @@
                                 <username>${anypoint.username}</username>
                                 <password>${anypoint.password}</password>
                                 <businessGroup>${businessGroup}</businessGroup>
-                                <workers>${workers}</workers>
-                                <workerType>${vCore}</workerType>
+                                <replicas>1</replicas>
+                                 <vCores>0.1</vCores>
                                 <muleVersion>${app.runtime}</muleVersion>
                             </cloudHub2Deployment>
                         </configuration>
