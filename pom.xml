@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.mycompany</groupId>
+    <groupId>96f01c2b-0ae8-4ad0-9957-017ad3be6d7f</groupId>
     <artifactId>pfe-demo</artifactId>
     <version>1.0.1-SNAPSHOT</version>
     <packaging>mule-application</packaging>
