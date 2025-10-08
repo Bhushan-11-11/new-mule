@@ -78,15 +78,15 @@
                         <artifactId>mule-maven-plugin</artifactId>
                         <version>${mule.maven.plugin.version}</version>
                            <extensions>true</extensions>
-                    <!--    <executions>
+                        <executions>
                             <execution>
                                 <id>deployment</id>
-                                <phase>deploy</phase>
+                                <phase>cloudhub2-deploy</phase>
                                 <goals>
                                     <goal>deploy</goal>
                                 </goals>
                             </execution>
-                        </executions> -->
+                        </executions> 
                         <configuration>
                             <cloudHub2Deployment>
                                 <uri>https://anypoint.mulesoft.com</uri>
