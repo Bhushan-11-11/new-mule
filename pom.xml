@@ -51,22 +51,21 @@
         </repository>
     </repositories>
 
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.mule.tools.maven</groupId>
-                        <artifactId>mule-maven-plugin</artifactId>
-                        <version>${mule.maven.plugin.version}</version>
-                        <extensions>true</extensions>
-                     <executions>
-                            <execution>
-                                <id>deployment</id>
-                                <phase>deploy</phase>
-                                <goals>
-                                    <goal>deploy</goal>
-                                </goals>
-                            </execution>
-                        </executions> 
+<profiles>
+    <profile>
+        <id>cloudhub2-deploy</id>
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.mule.tools.maven</groupId>
+                    <artifactId>mule-maven-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>cloudhub2-deployment</id>
+                            <phase>deploy</phase>
+                            <goals>
+                                <goal>deploy</goal>
+                            </goals>
                         <configuration>
                                  <classifier>>mule-application</classifier>
                             <cloudHub2Deployment>
@@ -82,9 +81,13 @@
                                 <muleVersion>${app.runtime}</muleVersion>
                             </cloudHub2Deployment>
                         </configuration>
-                    </plugin>
-                </plugins>
-            </build>
+                    </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
+        </profile>
+</profiles>
          
    <pluginRepositories>
         <pluginRepository>
