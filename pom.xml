@@ -70,6 +70,7 @@
                             </goals>
                         <configuration>
                                  <classifier>>mule-application</classifier>
+                                 <mainFile>target/pfe-demo-11112000-1.0.1-mule-application.jar</mainFile>
                             <cloudHub2Deployment>
                                 <uri>https://anypoint.mulesoft.com</uri>
                                 <target>${targetName}</target>
