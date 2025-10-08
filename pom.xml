@@ -59,6 +59,8 @@
                 <plugin>
                     <groupId>org.mule.tools.maven</groupId>
                     <artifactId>mule-maven-plugin</artifactId>
+                    <version>${mule.maven.plugin.version}</version>
+                   <extension>true</extension>
                     <executions>
                         <execution>
                             <id>cloudhub2-deployment</id>
