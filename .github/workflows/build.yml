@@ -54,6 +54,8 @@ jobs:
     - uses: actions/download-artifact@v4
       with:
         name: artifacts
+    - name: Move artifact to working directory
+      run: mv artifacts/*.jar .
     - name: Deploy to Sandbox
       env:
         USERNAME: ${{ secrets.anypoint_platform_username }}
