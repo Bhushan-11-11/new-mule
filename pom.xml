@@ -8,7 +8,6 @@
     <artifactId>pfe-demo-11112000</artifactId>
     <version>1.0.1</version>
     <packaging>mule-application</packaging>
-
     <name>pfe-demo-11112000</name>
 
     <properties>
@@ -65,7 +64,7 @@
                                 <uri>https://anypoint.mulesoft.com</uri>
                                 <provider>MC</provider>
                                 <target>Cloudhub-US-East-2</target>
-                                <applicationName>${project.artifactID}</applicationName>
+                                <applicationName>${project.artifactId}</applicationName>
                                 <environment>Sandbox</environment>
                                 <username>${anypoint.username}</username>
                                 <password>${anypoint.password}</password>
@@ -86,15 +85,15 @@
 
     <repositories>
         <repository>
-            <id>anypoint-exchange-v3</id>
-            <name>Anypoint Exchange</name>
-            <url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
-            <layout>default</layout>
-        </repository>
-        <repository>
             <id>mulesoft-releases</id>
             <name>MuleSoft Releases Repository</name>
             <url>https://repository.mulesoft.org/releases/</url>
+            <layout>default</layout>
+        </repository>
+        <repository>
+            <id>anypoint-exchange-v3</id>
+            <name>Anypoint Exchange</name>
+            <url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
             <layout>default</layout>
         </repository>
         <repository>
@@ -104,6 +103,7 @@
             <layout>default</layout>
         </repository>
     </repositories>
+
     <pluginRepositories>
         <pluginRepository>
             <id>mulesoft-releases</id>
@@ -114,6 +114,7 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
+
     <distributionManagement>
         <repository>
             <id>Repository</id>
@@ -122,5 +123,4 @@
             <layout>default</layout>
         </repository>
     </distributionManagement>
-
 </project>
