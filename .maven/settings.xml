@@ -10,12 +10,12 @@
   </pluginGroups>
 
   <servers>
-    <server>
-      <id>mule-releases</id>
-      <username>~~~Client~~~</username>
-      <password>${client.id}~?~${client.secret}</password>
-    </server>
-  </servers>
+  <server>
+    <id>mule-ee-releases</id>
+    <username>${{ secrets.MULE_USERNAME }}</username>
+    <password>${{ secrets.MULE_PASSWORD }}</password>
+  </server>
+</servers>
 
   <profiles>
     <profile>
