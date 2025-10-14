@@ -12,10 +12,16 @@
   <servers>
   <server>
     <id>mule-ee-releases</id>
-    <username>${{ secrets.MULE_USERNAME }}</username>
-    <password>${{ secrets.MULE_PASSWORD }}</password>
+    <username>${env.CONNECTED_APP_CLIENT_ID}</username>
+    <password>${env.CONNECTED_APP_CLIENT_SECRET}</password>
   </server>
 </servers>
+          <server>
+      <id>anypoint</id>
+      <username>${env.ANYPOINT_PLATFORM_USERNAME}</username>
+      <password>${env.ANYPOINT_PLATFORM_PASSWORD}</password>
+    </server>
+  </servers>
 
   <profiles>
     <profile>
@@ -40,4 +46,11 @@
   <activeProfiles>
     <activeProfile>mule-repositories</activeProfile>
   </activeProfiles>
+<mirrors>
+    <mirror>
+      <id>mule-mirror</id>
+      <mirrorOf>*</mirrorOf>
+      <url>https://repository.mulesoft.org/nexus-ee/content/repositories/releases-ee/</url>
+    </mirror>
+  </mirrors>
 </settings>
