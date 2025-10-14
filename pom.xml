@@ -7,7 +7,7 @@
     <groupId>96f01c2b-0ae8-4ad0-9957-017ad3be6d7f</groupId>
     <artifactId>pfe-demo-11112000</artifactId>
     <version>1.0.1</version>
-    <packaging>mule</packaging>
+    <packaging>pom</packaging>
     <name>pfe-demo-11112000</name>
 
     <properties>
