@@ -11,7 +11,7 @@
 
   <servers>
     <server>
-      <id>Repository</id>
+      <id>mule-releases</id>
       <username>~~~Client~~~</username>
       <password>${client.id}~?~${client.secret}</password>
     </server>
@@ -22,12 +22,16 @@
       <id>mule-repositories</id>
       <pluginRepositories>
         <pluginRepository>
-          <id>mulesoft-releases</id>
-          <url>https://repository.mulesoft.org/releases/</url>
+          <id>mule-releases</id>
+          <url>https://repository.mulesoft.org/nexus/content/repositories/releases/</url>
         </pluginRepository>
         <pluginRepository>
-          <id>mulesoft-snapshots</id>
-          <url>https://repository.mulesoft.org/snapshots/</url>
+          <id>mule-snapshots</id>
+          <url>https://repository.mulesoft.org/nexus/content/repositories/snapshots/</url>
+        </pluginRepository>
+        <pluginRepository>
+          <id>mule-ee-releases</id>
+          <url>https://repository.mulesoft.org/nexus-ee/content/repositories/releases-ee/</url>
         </pluginRepository>
       </pluginRepositories>
     </profile>
