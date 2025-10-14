@@ -7,14 +7,14 @@
     <groupId>96f01c2b-0ae8-4ad0-9957-017ad3be6d7f</groupId>
     <artifactId>pfe-demo-11112000</artifactId>
     <version>1.0.1</version>
-    <packaging>mule-application</packaging>
+    <packaging>mule</packaging>
     <name>pfe-demo-11112000</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <app.runtime>4.9.9</app.runtime>
-        <mule.maven.plugin.version>4.6.2</mule.maven.plugin.version>
+        <mule.maven.plugin.version>3.9.1</mule.maven.plugin.version>
     </properties>
 
     <dependencies>
