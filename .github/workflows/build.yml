@@ -49,14 +49,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: artifacts
-
-      - name: Move artifact to working directory
-        run: mv artifacts/*.jar .
-
       - name: Deploy to CloudHub Sandbox
         env:
           ANYPOINT_PLATFORM_USERNAME: ${{ secrets.ANYPOINT_PLATFORM_USERNAME }}
