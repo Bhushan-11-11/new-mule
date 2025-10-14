@@ -16,12 +16,6 @@
     <password>${env.CONNECTED_APP_CLIENT_SECRET}</password>
   </server>
 </servers>
-          <server>
-      <id>anypoint</id>
-      <username>${env.ANYPOINT_PLATFORM_USERNAME}</username>
-      <password>${env.ANYPOINT_PLATFORM_PASSWORD}</password>
-    </server>
-  </servers>
 
   <profiles>
     <profile>
